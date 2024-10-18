@@ -50,7 +50,7 @@ extension LocationsDetailView {
                     Image($0)
                         .resizable()
                         .scaledToFill()
-                        .frame(width: UIScreen.main.bounds.width)
+                        .frame(width: UIDevice.current.userInterfaceIdiom == .pad ? nil : UIScreen.main.bounds.width)
                         .clipped()
                 }
             }
@@ -63,6 +63,7 @@ extension LocationsDetailView {
             Text(location.name)
                 .font(.title)
                 .fontWeight(.bold)
+                .foregroundColor(.secondary)
             
             Text("\(location.height) Mdpl")
                 .font(.subheadline)
